@@ -850,6 +850,20 @@ require('lazy').setup({
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
   },
 
+  -- Add Tmux Intergration With Neovim
+  {
+    'christoomey/vim-tmux-navigator',
+    event = 'VimEnter',
+    config = function()
+      vim.g.tmux_navigator_no_mappings = 1
+
+      vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<CR>', { silent = true, noremap = true })
+      vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<CR>', { silent = true, noremap = true })
+      vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<CR>', { silent = true, noremap = true })
+      vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>', { silent = true, noremap = true })
+    end,
+  },
+
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
